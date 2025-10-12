@@ -28,6 +28,10 @@ break if exit is selected. Now a programming tip. No program is perfect and I ca
 functions but i can keep improving on the instead of out write deleting them so i can move forward. - EMPR
 */
 
+/* Dev Note 1: Alright, so right now im just going to declare functions, classes and variables before i actually add arguments.
+I'll have to figure that out so writing will be very interesting. - EMPR
+*/
+
 using namespace std;
 
 class Bank {
