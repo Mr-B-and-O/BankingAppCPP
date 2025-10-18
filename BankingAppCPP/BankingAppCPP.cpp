@@ -39,9 +39,33 @@ class Bank {
     map<int, string> account_library;
     map<int, string> transaction_library;
     // Defining functions 
-    int bank_accounts() {
+    // This will store the names of the accounts. The account numbers function will need this function "Somehow xd"
+    int bank_accounts(string name){
+        account_library[1] = name;
+        cout << account_library[1] << endl;
     };
-    int bank_transactions(){
+    // This will handle the tranactions
+    int bank_transactions(string deposite, string withdraw){
+        // For testing assume this is the users money that they put in when they made thier bank account
+        int money;
+        string transaction;
+        cin >> transaction;
+        if (transaction == deposite) {
+            // Going to have to figure out this modifiable value error
+            int deposite;
+            // This should be the money they deposited combining with the money they already have in the bank
+            deposite + money = money;
+            return money;
+        }
+        else if (transaction == withdraw) {
+            // Withdrawing should be subtracting from the bank
+            money - withdraw = money;
+
+            return money;
+        }
+        else{
+            cout << "Error!" << endl;
+        }
     }
     int account_numbers() {
     };
@@ -65,7 +89,8 @@ class BankAccount {
 };
 
 int main()
-{
+{   // Creating bank object for Bank to use its functions as methods
+    Bank bank_object;
     while (true) {
         for (int i = 1; i <= 4; ++i) {
             int number;
@@ -81,8 +106,10 @@ int main()
             cout << "Enter your choice : ";
             cin >> number;
             cout << "You have selcted option: " << number << endl;
+            bank_object.bank_accounts();
+            int bank_name = bank_object.bank_accounts();
 
-            return 0;
+)           return 0;
         }
         
     }
