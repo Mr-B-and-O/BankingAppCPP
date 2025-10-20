@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <random>
+#include <chrono>
 #include <ctime>
 #include <map>
 /* So I am busy writing a banking system program which is going to simulate an actual banking system program
@@ -25,7 +27,7 @@ option you choose, certain code is going to be executed. The options in the loop
 Check Balance, Transaction History, Exit. Then in the loop its also going to print those same options. It will want the user 
 to input a certain number so if its that number it will go to a else if choice because the number equals it. The loop will 
 break if exit is selected. Now a programming tip. No program is perfect and I can't expect myself to create perfect classes and
-functions but i can keep improving on the instead of out write deleting them so i can move forward. - EMPR
+functions but i can keep improving on the instead of out write deleting them so I can move forward. - EMPR
 */
 
 /* Dev Note 1: Alright, so right now im just going to declare functions, classes and variables before i actually add arguments.
@@ -67,7 +69,17 @@ class Bank {
             cout << "Error!" << endl;
         }
     }
-    int account_numbers() {
+    // Going to be using random number generators so that it generates account numbers that have up to 8 digits which should be tied to a name(account library) 
+    // And I need to write a way that I can link the account number to the account_library dictionary but maybe not in this function
+    int account_numbers(int random_number) {
+        // Seeding the random generator engine with current time
+        mt19937 engine(std::chrono::high_resolution_clock::now().time_since_epoch().count());
+        // We want numbers generated within this range
+        uniform_int_distribution<int> dist(10000000, 99999999);
+        // The random number generated will be in random_number
+        random_number = dist(engine);
+
+        return random_number; 
     };
     int transaction_history() {
     };
