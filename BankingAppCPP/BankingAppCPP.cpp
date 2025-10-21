@@ -34,33 +34,38 @@ functions but i can keep improving on the instead of out write deleting them so 
 I'll have to figure that out so writing will be very interesting. - EMPR
 */
 
+/* Dev Note 2: Yea, idk what I'm doing so I'll just keep writing code hoping that I'll eventually make my way to the correct solutions
+with these classes and funtions. Better to write bad code than not write code at all, then you can fix it later! - EMPR
+*/
+
 using namespace std;
+// For now for the sake of testing, this is the money that the user has and it will be used in all other functions.
+int money;
 
 class Bank {
-    // Creating libraries that our functions will use
+    // Creating libraries that our functions will use.
     map<int, string> account_library;
     map<int, string> transaction_library;
     // Defining functions 
-    // This will store the names of the accounts. The account numbers function will need this function "Somehow xd"
+    // This will store the names of the accounts. The account numbers function will need this function "Somehow xd".
     int bank_accounts(string name){
         account_library[1] = name;
         cout << account_library[1] << endl;
     };
     // This will handle the tranactions
     int bank_transactions(string deposite, string withdraw){
-        // For testing assume this is the users money that they put in when they made thier bank account
-        int money;
+        // For testing assume this is the users money that they put in when they made thier bank account.
         string transaction;
         cin >> transaction;
         if (transaction == deposite) {
-            // Going to have to figure out this modifiable value error
+            // Going to have to figure out this modifiable value error.
             int deposite;
-            // This should be the money they deposited combining with the money they already have in the bank
+            // This should be the money they deposited combining with the money they already have in the bank.
             deposite + money = money;
             return money;
         }
         else if (transaction == withdraw) {
-            // Withdrawing should be subtracting from the bank
+            // Withdrawing should be subtracting from the bank.
             money - withdraw = money;
 
             return money;
@@ -69,29 +74,35 @@ class Bank {
             cout << "Error!" << endl;
         }
     }
-    // Going to be using random number generators so that it generates account numbers that have up to 8 digits which should be tied to a name(account library) 
-    // And I need to write a way that I can link the account number to the account_library dictionary but maybe not in this function
+    // Going to be using random number generators so that it generates account numbers that have up to 8 digits which should be tied to a name(account library) .
+    // And I need to write a way that I can link the account number to the account_library dictionary but maybe not in this function.
     int account_numbers(int random_number) {
-        // Seeding the random generator engine with current time
+        // Seeding the random generator engine with current time.
         mt19937 engine(std::chrono::high_resolution_clock::now().time_since_epoch().count());
-        // We want numbers generated within this range
+        // We want numbers generated within this range.
         uniform_int_distribution<int> dist(10000000, 99999999);
-        // The random number generated will be in random_number
+        // The random number generated will be in random_number.
         random_number = dist(engine);
 
         return random_number; 
     };
+    // This is going to contain the history of transactions, still building this function....
+    // And I also need to figure out how to have the transaction_history work with bank_accounts because from the bank_accounts is where we should get the users money (also still have to code that).
     int transaction_history() {
+        // Storing money into transaction_library
+        transaction_library[1] = money;
+        cout << transaction_library[1] <<endl;
+        return 0;
     };
 
 };
 
 class BankAccount {
-    // Declaring instance variables
+    // Declaring instance variables.
     int account_holder;
     int initial_balance;
     int withdrawing;
-    // Defining functions
+    // Defining functions.
     int depositing() {
     };
     int getting_balance() {
@@ -101,13 +112,13 @@ class BankAccount {
 };
 
 int main()
-{   // Creating bank object for Bank to use its functions as methods
+{   // Creating bank object for Bank to use its functions as methods.
     Bank bank_object;
     while (true) {
         for (int i = 1; i <= 4; ++i) {
             int number;
 
-            // This prints out the bank system //
+            // This prints out the bank system.
 
             cout << "Greeting! Welcome to EMPR Bank!\n";
             cout << "1. Create an Account\n";
