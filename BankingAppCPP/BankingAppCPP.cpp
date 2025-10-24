@@ -102,9 +102,16 @@ class BankAccount {
     int account_holder;
     int initial_balance;
     int withdrawing;
-    // Defining functions.
+    // Defining functions. Still in the process of creating them.
     int depositing() {
+        // Creating Bank object so that i can use the Bank methods for these funtions.
+        Bank bankobject;
+        int bankaccount_variable = bankobject.bank_accounts(string lile);
+        cout << bankaccount_variable << endl;
+        return 0;
     };
+
+    
     int getting_balance() {
     };
 
